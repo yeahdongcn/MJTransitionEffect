@@ -10,6 +10,8 @@
 
 #import "UITableView+Frames.h"
 
+#import "RSDetailViewController.h"
+
 @interface RSTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *places;
@@ -74,7 +76,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView framesForRowAtIndexPath:indexPath];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    RSDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detail"];
+    viewController.sourceFrames = [tableView framesForRowAtIndexPath:indexPath];
+    [self.navigationController pushViewController:viewController animated:NO];
 }
 
 @end

@@ -14,19 +14,32 @@
 
 @implementation RSTransitionEffectViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)__prepareTargetFrames
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    NSMutableDictionary *frames = [NSMutableDictionary dictionary];
+    [frames setObject:[NSValue valueWithCGRect:self.view.frame] forKey:@"cell"];
+    [frames setObject:[NSValue valueWithCGRect:self.imageView.frame] forKey:@"imageView"];
+    [frames setObject:[NSValue valueWithCGRect:self.textLabel.frame] forKey:@"textLabel"];
+    [frames setObject:[NSValue valueWithCGRect:self.detailTextLabel.frame] forKey:@"detailTextLabel"];
+    self.targetFrames = [NSDictionary dictionaryWithDictionary:frames];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self __prepareTargetFrames];
+    
+    self.imageView.frame = [[self.sourceFrames objectForKey:@"imageView"] CGRectValue];
+    self.textLabel.frame = [[self.sourceFrames objectForKey:@"textLabel"] CGRectValue];
+    self.detailTextLabel.frame = [[self.sourceFrames objectForKey:@"detailTextLabel"] CGRectValue];
+    
+    [UIView animateWithDuration:2.0f animations:^{
+        self.imageView.frame = [[self.targetFrames objectForKey:@"imageView"] CGRectValue];
+        self.textLabel.frame = [[self.targetFrames objectForKey:@"textLabel"] CGRectValue];
+        self.detailTextLabel.frame = [[self.targetFrames objectForKey:@"detailTextLabel"] CGRectValue];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,7 +50,7 @@
 
 - (IBAction)close:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 @end
