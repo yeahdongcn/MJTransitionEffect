@@ -16,7 +16,6 @@
 		77D69FBE17ABE8DF00DE21A4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D69FB817ABE8DF00DE21A4 /* Default.png */; };
 		77D69FBF17ABE8DF00DE21A4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D69FB917ABE8DF00DE21A4 /* Default@2x.png */; };
 		77D69FC017ABE8DF00DE21A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D69FBA17ABE8DF00DE21A4 /* main.m */; };
-		77D69FC117ABE8DF00DE21A4 /* MJTransitionEffect-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77D69FBB17ABE8DF00DE21A4 /* MJTransitionEffect-Info.plist */; };
 		77D69FD217ABE90700DE21A4 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77D69FC917ABE90700DE21A4 /* DetailViewController.xib */; };
 		77D69FD417ABE90700DE21A4 /* SampleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77D69FCC17ABE90700DE21A4 /* SampleCell.xib */; };
 		77D69FD517ABE90700DE21A4 /* temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 77D69FCD17ABE90700DE21A4 /* temp.png */; };
@@ -35,7 +34,7 @@
 		D0CC23881858182400F17B62 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0CC23871858182400F17B62 /* Storyboard.storyboard */; };
 		D0CC238B1858187A00F17B62 /* RSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC238A1858187A00F17B62 /* RSAppDelegate.m */; };
 		D0CC23941858226F00F17B62 /* RSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC23931858226F00F17B62 /* RSTableViewController.m */; };
-		D0CC239A1858372000F17B62 /* UITableViewCell+Frames.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC23991858372000F17B62 /* UITableViewCell+Frames.m */; };
+		D0CC239D185844CF00F17B62 /* UITableView+Frames.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC239C185844CF00F17B62 /* UITableView+Frames.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,8 +78,8 @@
 		D0CC238A1858187A00F17B62 /* RSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAppDelegate.m; sourceTree = "<group>"; };
 		D0CC23921858226F00F17B62 /* RSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTableViewController.h; sourceTree = "<group>"; };
 		D0CC23931858226F00F17B62 /* RSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTableViewController.m; sourceTree = "<group>"; };
-		D0CC23981858372000F17B62 /* UITableViewCell+Frames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Frames.h"; sourceTree = "<group>"; };
-		D0CC23991858372000F17B62 /* UITableViewCell+Frames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Frames.m"; sourceTree = "<group>"; };
+		D0CC239B185844CF00F17B62 /* UITableView+Frames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Frames.h"; sourceTree = "<group>"; };
+		D0CC239C185844CF00F17B62 /* UITableView+Frames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Frames.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,8 +188,8 @@
 				D0CC23921858226F00F17B62 /* RSTableViewController.h */,
 				D0CC23931858226F00F17B62 /* RSTableViewController.m */,
 				7715883617A91CA700FEA414 /* Supporting Files */,
-				D0CC23981858372000F17B62 /* UITableViewCell+Frames.h */,
-				D0CC23991858372000F17B62 /* UITableViewCell+Frames.m */,
+				D0CC239B185844CF00F17B62 /* UITableView+Frames.h */,
+				D0CC239C185844CF00F17B62 /* UITableView+Frames.m */,
 			);
 			path = RSTransitionEffect;
 			sourceTree = "<group>";
@@ -252,7 +251,6 @@
 				77D69FBD17ABE8DF00DE21A4 /* Default-568h@2x.png in Resources */,
 				77D69FBE17ABE8DF00DE21A4 /* Default.png in Resources */,
 				77D69FBF17ABE8DF00DE21A4 /* Default@2x.png in Resources */,
-				77D69FC117ABE8DF00DE21A4 /* MJTransitionEffect-Info.plist in Resources */,
 				77D69FD217ABE90700DE21A4 /* DetailViewController.xib in Resources */,
 				77D69FD417ABE90700DE21A4 /* SampleCell.xib in Resources */,
 				77D69FD517ABE90700DE21A4 /* temp.png in Resources */,
@@ -279,8 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				77D69FC017ABE8DF00DE21A4 /* main.m in Sources */,
-				D0CC239A1858372000F17B62 /* UITableViewCell+Frames.m in Sources */,
 				D0CC238B1858187A00F17B62 /* RSAppDelegate.m in Sources */,
+				D0CC239D185844CF00F17B62 /* UITableView+Frames.m in Sources */,
 				D0CC23941858226F00F17B62 /* RSTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

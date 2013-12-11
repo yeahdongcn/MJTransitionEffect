@@ -8,7 +8,7 @@
 
 #import "RSTableViewController.h"
 
-#import "UITableViewCell+Frames.h"
+#import "UITableView+Frames.h"
 
 @interface RSTableViewController ()
 
@@ -69,6 +69,13 @@
     cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",[dict objectForKey:@"Image"]]];
     
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView framesForRowAtIndexPath:indexPath];
 }
 
 @end

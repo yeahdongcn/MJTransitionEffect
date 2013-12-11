@@ -1,5 +1,5 @@
 //
-//  UITableViewCell+Frames.h
+//  UITableView+Frames.h
 //  MJTransitionEffect
 //
 //  Created by R0CKSTAR on 12/11/13.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITableViewCell (Frames)
+@interface UITableView (Frames)
+
+- (NSDictionary *)framesForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
