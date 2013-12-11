@@ -143,7 +143,6 @@
 				77D69FCE17ABE90700DE21A4 /* ViewController.h */,
 				77D69FCF17ABE90700DE21A4 /* ViewController.m */,
 				77D69FD717ABE91B00DE21A4 /* ViewController.xib */,
-				7715883617A91CA700FEA414 /* Supporting Files */,
 			);
 			name = MJTransitionEffect;
 			path = AnimationMaximize;
@@ -161,6 +160,7 @@
 				77D69FBC17ABE8DF00DE21A4 /* MJTransitionEffect-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = ../AnimationMaximize;
 			sourceTree = "<group>";
 		};
 		77CC9ED217AA52030042EB0B /* Sample Images */ = {
@@ -183,6 +183,7 @@
 		D0CC23861858180600F17B62 /* RSTransitionEffect */ = {
 			isa = PBXGroup;
 			children = (
+				7715883617A91CA700FEA414 /* Supporting Files */,
 				D0CC23891858187A00F17B62 /* RSAppDelegate.h */,
 				D0CC238A1858187A00F17B62 /* RSAppDelegate.m */,
 				D0CC23871858182400F17B62 /* Storyboard.storyboard */,
@@ -369,6 +370,7 @@
 		7715885017A91CA800FEA414 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anand Shah (A8VHE84DGR)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anand Shah (A8VHE84DGR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -384,6 +386,7 @@
 		7715885117A91CA800FEA414 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anand Shah (A8VHE84DGR)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anand Shah (A8VHE84DGR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
