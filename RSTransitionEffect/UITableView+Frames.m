@@ -17,9 +17,9 @@
     CGRect cellFrameInWindow = [self convertRect:cellFrameInTableView toView:[UIApplication sharedApplication].keyWindow];
     NSMutableDictionary *frames = [NSMutableDictionary dictionary];
     [frames setObject:[NSValue valueWithCGRect:cellFrameInWindow] forKey:@"cell"];
-    [frames setObject:[NSValue valueWithCGRect:CGRectZero] forKey:@"imageView"];
-    [frames setObject:[NSValue valueWithCGRect:CGRectZero] forKey:@"textLabel"];
-    [frames setObject:[NSValue valueWithCGRect:CGRectZero] forKey:@"detailTextLabel"];
+    [frames setObject:[NSValue valueWithCGRect:CGRectOffset(cell.imageView.frame, cellFrameInWindow.origin.x, cellFrameInWindow.origin.y)] forKey:@"imageView"];
+    [frames setObject:[NSValue valueWithCGRect:CGRectOffset(cell.textLabel.frame, cellFrameInWindow.origin.x, cellFrameInWindow.origin.y)] forKey:@"textLabel"];
+    [frames setObject:[NSValue valueWithCGRect:CGRectOffset(cell.detailTextLabel.frame, cellFrameInWindow.origin.x, cellFrameInWindow.origin.y)] forKey:@"detailTextLabel"];
     return [NSDictionary dictionaryWithDictionary:frames];
 }
 

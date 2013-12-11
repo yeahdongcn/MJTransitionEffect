@@ -12,7 +12,7 @@
 
 @interface RSTableViewController ()
 
-@property (nonatomic, retain) NSMutableArray* arrayForPlaces;
+@property (nonatomic, strong) NSMutableArray *places;
 
 @end
 
@@ -31,9 +31,8 @@
 {
     [super viewDidLoad];
     
-    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"SampleData" ofType:@"plist"];
-    NSMutableDictionary *plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    self.arrayForPlaces = [plistDict objectForKey:@"Data"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"SampleData" ofType:@"plist"];
+    self.places = [[[NSDictionary alloc] initWithContentsOfFile:path] objectForKey:@"Data"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,11 +61,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    NSDictionary* dict = [self.arrayForPlaces objectAtIndex:indexPath.row];
+    NSDictionary *place = [self.places objectAtIndex:[indexPath row]];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",[dict objectForKey:@"Place"]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[dict objectForKey:@"Country"]];
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",[dict objectForKey:@"Image"]]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",[place objectForKey:@"Place"]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[place objectForKey:@"Country"]];
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",[place objectForKey:@"Image"]]];
     
     return cell;
 }
