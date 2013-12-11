@@ -35,6 +35,8 @@
 		D0CC238B1858187A00F17B62 /* RSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC238A1858187A00F17B62 /* RSAppDelegate.m */; };
 		D0CC23941858226F00F17B62 /* RSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC23931858226F00F17B62 /* RSTableViewController.m */; };
 		D0CC239D185844CF00F17B62 /* UITableView+Frames.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC239C185844CF00F17B62 /* UITableView+Frames.m */; };
+		D0CC23A318584C1000F17B62 /* RSTransitionEffectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC23A218584C1000F17B62 /* RSTransitionEffectViewController.m */; };
+		D0CC23A618584C3D00F17B62 /* RSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC23A518584C3D00F17B62 /* RSDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,10 @@
 		D0CC23931858226F00F17B62 /* RSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTableViewController.m; sourceTree = "<group>"; };
 		D0CC239B185844CF00F17B62 /* UITableView+Frames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Frames.h"; sourceTree = "<group>"; };
 		D0CC239C185844CF00F17B62 /* UITableView+Frames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Frames.m"; sourceTree = "<group>"; };
+		D0CC23A118584C1000F17B62 /* RSTransitionEffectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTransitionEffectViewController.h; sourceTree = "<group>"; };
+		D0CC23A218584C1000F17B62 /* RSTransitionEffectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTransitionEffectViewController.m; sourceTree = "<group>"; };
+		D0CC23A418584C3D00F17B62 /* RSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDetailViewController.h; sourceTree = "<group>"; };
+		D0CC23A518584C3D00F17B62 /* RSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,16 +188,28 @@
 		D0CC23861858180600F17B62 /* RSTransitionEffect */ = {
 			isa = PBXGroup;
 			children = (
+				D0CC23A718584C5900F17B62 /* New Group */,
 				D0CC23891858187A00F17B62 /* RSAppDelegate.h */,
 				D0CC238A1858187A00F17B62 /* RSAppDelegate.m */,
 				D0CC23871858182400F17B62 /* Storyboard.storyboard */,
 				D0CC23921858226F00F17B62 /* RSTableViewController.h */,
 				D0CC23931858226F00F17B62 /* RSTableViewController.m */,
+				D0CC23A418584C3D00F17B62 /* RSDetailViewController.h */,
+				D0CC23A518584C3D00F17B62 /* RSDetailViewController.m */,
 				7715883617A91CA700FEA414 /* Supporting Files */,
-				D0CC239B185844CF00F17B62 /* UITableView+Frames.h */,
-				D0CC239C185844CF00F17B62 /* UITableView+Frames.m */,
 			);
 			path = RSTransitionEffect;
+			sourceTree = "<group>";
+		};
+		D0CC23A718584C5900F17B62 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				D0CC239B185844CF00F17B62 /* UITableView+Frames.h */,
+				D0CC239C185844CF00F17B62 /* UITableView+Frames.m */,
+				D0CC23A118584C1000F17B62 /* RSTransitionEffectViewController.h */,
+				D0CC23A218584C1000F17B62 /* RSTransitionEffectViewController.m */,
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0CC23A618584C3D00F17B62 /* RSDetailViewController.m in Sources */,
+				D0CC23A318584C1000F17B62 /* RSTransitionEffectViewController.m in Sources */,
 				77D69FC017ABE8DF00DE21A4 /* main.m in Sources */,
 				D0CC238B1858187A00F17B62 /* RSAppDelegate.m in Sources */,
 				D0CC239D185844CF00F17B62 /* UITableView+Frames.m in Sources */,
