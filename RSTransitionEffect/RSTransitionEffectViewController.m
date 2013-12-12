@@ -18,6 +18,8 @@
 
 @implementation RSTransitionEffectViewController
 
+#pragma mark - Private
+
 - (void)__bindItem
 {
     self.textLabel.text = self.item.text;
@@ -46,6 +48,27 @@
     self.targetFrames = [NSDictionary dictionaryWithDictionary:frames];
 }
 
+- (void)__changeFrames:(BOOL)is2Source
+{
+    NSDictionary *frames = nil;
+    CGRect toolbarFrame = self.toolbar.frame;
+    if (is2Source) {
+        frames = self.sourceFrames;
+        self.backgroundView.alpha = 1;
+        toolbarFrame.origin.y += toolbarFrame.size.height;
+    } else {
+        frames = self.targetFrames;
+        self.backgroundView.alpha = 0;
+        toolbarFrame.origin.y -= toolbarFrame.size.height;
+    }
+    
+    self.cell.frame = [[frames objectForKey:@"cell"] CGRectValue];
+    self.imageView.frame = [[frames objectForKey:@"imageView"] CGRectValue];
+    self.textLabel.frame = [[frames objectForKey:@"textLabel"] CGRectValue];
+    self.detailTextLabel.frame = [[frames objectForKey:@"detailTextLabel"] CGRectValue];
+    self.toolbar.frame = toolbarFrame;
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
@@ -65,32 +88,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.backgroundView.backgroundColor = self.backgroundColor;
+    
     [self __bindItem];
     
     [self __prepareTargetFrames];
     
-    self.backgroundView.backgroundColor = self.backgroundColor;
-
-    self.cell.frame = [[self.sourceFrames objectForKey:@"cell"] CGRectValue];
-    self.imageView.frame = [[self.sourceFrames objectForKey:@"imageView"] CGRectValue];
-    self.textLabel.frame = [[self.sourceFrames objectForKey:@"textLabel"] CGRectValue];
-    self.detailTextLabel.frame = [[self.sourceFrames objectForKey:@"detailTextLabel"] CGRectValue];
-    
-    CGRect frame = self.toolbar.frame;
-    frame.origin.y += frame.size.height;
-    self.toolbar.frame = frame;
+    [self __changeFrames:YES];
     
     [UIView animateWithDuration:1.0f animations:^{
-        self.backgroundView.alpha = 0;
-        
-        self.cell.frame = [[self.targetFrames objectForKey:@"cell"] CGRectValue];
-        self.imageView.frame = [[self.targetFrames objectForKey:@"imageView"] CGRectValue];
-        self.textLabel.frame = [[self.targetFrames objectForKey:@"textLabel"] CGRectValue];
-        self.detailTextLabel.frame = [[self.targetFrames objectForKey:@"detailTextLabel"] CGRectValue];
-        
-        CGRect frame = self.toolbar.frame;
-        frame.origin.y -= frame.size.height;
-        self.toolbar.frame = frame;
+        [self __changeFrames:NO];
     }];
 }
 
@@ -103,16 +110,7 @@
 - (IBAction)close:(id)sender
 {
     [UIView animateWithDuration:1.0f animations:^{
-        self.backgroundView.alpha = 1;
-        
-        self.cell.frame = [[self.sourceFrames objectForKey:@"cell"] CGRectValue];
-        self.imageView.frame = [[self.sourceFrames objectForKey:@"imageView"] CGRectValue];
-        self.textLabel.frame = [[self.sourceFrames objectForKey:@"textLabel"] CGRectValue];
-        self.detailTextLabel.frame = [[self.sourceFrames objectForKey:@"detailTextLabel"] CGRectValue];
-        
-        CGRect frame = self.toolbar.frame;
-        frame.origin.y += frame.size.height;
-        self.toolbar.frame = frame;
+        [self __changeFrames:YES];
     } completion:^(BOOL finished) {
         [self.navigationController popViewControllerAnimated:NO];
     }];
