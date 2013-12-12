@@ -12,25 +12,11 @@
 
 @interface RSTransitionEffectViewController ()
 
-@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) UIColor *backgroundColor;
 
 @end
 
 @implementation RSTransitionEffectViewController
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-        UIGraphicsBeginImageContextWithOptions(window.bounds.size, YES, 0.0f);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        [window.layer renderInContext:context];
-        self.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-    }
-    return self;
-}
 
 - (void)__bindItem
 {
@@ -60,16 +46,30 @@
     self.targetFrames = [NSDictionary dictionaryWithDictionary:frames];
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        UIGraphicsBeginImageContextWithOptions(window.bounds.size, YES, 0.0f);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [window.layer renderInContext:context];
+        self.backgroundColor = [UIColor colorWithPatternImage:UIGraphicsGetImageFromCurrentImageContext()];
+        UIGraphicsEndImageContext();
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.backgroundView.backgroundColor = [UIColor colorWithPatternImage:self.image];
-    
     [self __bindItem];
     
     [self __prepareTargetFrames];
+    
+    self.backgroundView.backgroundColor = self.backgroundColor;
 
     self.cell.frame = [[self.sourceFrames objectForKey:@"cell"] CGRectValue];
     self.imageView.frame = [[self.sourceFrames objectForKey:@"imageView"] CGRectValue];
