@@ -14,6 +14,12 @@
 
 @property (nonatomic, strong) UIColor *backgroundColor;
 
+- (void)__bindItem;
+
+- (void)__prepareTargetFrames;
+
+- (void)__changeFrames:(BOOL)is2Source;
+
 @end
 
 @implementation RSTransitionEffectViewController
