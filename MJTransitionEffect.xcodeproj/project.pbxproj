@@ -37,6 +37,7 @@
 		D0CC239D185844CF00F17B62 /* UITableView+Frames.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC239C185844CF00F17B62 /* UITableView+Frames.m */; };
 		D0CC23A318584C1000F17B62 /* RSTransitionEffectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC23A218584C1000F17B62 /* RSTransitionEffectViewController.m */; };
 		D0CC23A618584C3D00F17B62 /* RSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CC23A518584C3D00F17B62 /* RSDetailViewController.m */; };
+		D0FBF74918594F5C001903DF /* RSBasicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBF74818594F5C001903DF /* RSBasicItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		D0CC23A218584C1000F17B62 /* RSTransitionEffectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTransitionEffectViewController.m; sourceTree = "<group>"; };
 		D0CC23A418584C3D00F17B62 /* RSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSDetailViewController.h; sourceTree = "<group>"; };
 		D0CC23A518584C3D00F17B62 /* RSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSDetailViewController.m; sourceTree = "<group>"; };
+		D0FBF74718594F5C001903DF /* RSBasicItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBasicItem.h; sourceTree = "<group>"; };
+		D0FBF74818594F5C001903DF /* RSBasicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBasicItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +211,8 @@
 				D0CC239C185844CF00F17B62 /* UITableView+Frames.m */,
 				D0CC23A118584C1000F17B62 /* RSTransitionEffectViewController.h */,
 				D0CC23A218584C1000F17B62 /* RSTransitionEffectViewController.m */,
+				D0FBF74718594F5C001903DF /* RSBasicItem.h */,
+				D0FBF74818594F5C001903DF /* RSBasicItem.m */,
 			);
 			name = "New Group";
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0CC23A618584C3D00F17B62 /* RSDetailViewController.m in Sources */,
+				D0FBF74918594F5C001903DF /* RSBasicItem.m in Sources */,
 				D0CC23A318584C1000F17B62 /* RSTransitionEffectViewController.m in Sources */,
 				77D69FC017ABE8DF00DE21A4 /* main.m in Sources */,
 				D0CC238B1858187A00F17B62 /* RSAppDelegate.m in Sources */,

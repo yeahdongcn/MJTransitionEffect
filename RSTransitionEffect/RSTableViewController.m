@@ -12,13 +12,23 @@
 
 #import "RSDetailViewController.h"
 
+#import "RSBasicItem.h"
+
 @interface RSTableViewController ()
 
-@property (nonatomic, strong) NSMutableArray *places;
+@property (nonatomic, strong) NSMutableArray *items;
 
 @end
 
 @implementation RSTableViewController
+
+- (NSMutableArray *)items
+{
+    if (!_items) {
+        _items = [[NSMutableArray alloc] init];
+    }
+    return _items;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,28 +42,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"SampleData" ofType:@"plist"];
-    self.places = [[[NSDictionary alloc] initWithContentsOfFile:path] objectForKey:@"Data"];
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    @autoreleasepool {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"SampleData" ofType:@"plist"];
+        NSArray *items = [[[NSDictionary alloc] initWithContentsOfFile:path] objectForKey:@"Data"];
+        for (NSDictionary *dict in items) {
+            RSBasicItem *item = [[RSBasicItem alloc] init];
+            item.text = [dict objectForKey:@"Place"];
+            item.detailText = [dict objectForKey:@"Country"];
+            item.image = [UIImage imageNamed:[dict objectForKey:@"Image"]];
+            [self.items addObject:item];
+        }
+    }
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return 10;
 }
 
@@ -63,11 +74,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    NSDictionary *place = [self.places objectAtIndex:[indexPath row]];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",[place objectForKey:@"Place"]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[place objectForKey:@"Country"]];
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",[place objectForKey:@"Image"]]];
+    RSBasicItem *item = [self.items objectAtIndex:[indexPath row]];
+    cell.textLabel.text = item.text;
+    cell.detailTextLabel.text = item.detailText;
+    cell.imageView.image = item.image;
     
     return cell;
 }
@@ -80,6 +90,7 @@
     
     RSDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detail"];
     viewController.sourceFrames = [tableView framesForRowAtIndexPath:indexPath];
+    viewController.item = [self.items objectAtIndex:[indexPath row]];
     [self.navigationController pushViewController:viewController animated:NO];
 }
 
