@@ -18,13 +18,15 @@
 
 @property (nonatomic, strong) RSBasicItem *item;
 
-@property (nonatomic, weak) IBOutlet UIView *backgroundView;
+@property (nonatomic, weak) IBOutlet UIView *cell;
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 
 @property (nonatomic, weak) IBOutlet UILabel *textLabel;
 
 @property (nonatomic, weak) IBOutlet UILabel *detailTextLabel;
+
+@property (nonatomic, weak) IBOutlet UIView *backgroundView;
 
 @property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
 

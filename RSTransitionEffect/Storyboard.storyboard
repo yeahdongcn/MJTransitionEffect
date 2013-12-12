@@ -58,6 +58,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" id="xeu-Xt-Fx6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="dbn-6T-s0T">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -96,7 +101,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="5My-dH-9ia"/>
                     <connections>
-                        <outlet property="backgroundView" destination="dbn-6T-s0T" id="bvC-fS-naK"/>
+                        <outlet property="backgroundView" destination="xeu-Xt-Fx6" id="Qya-ox-tdR"/>
+                        <outlet property="cell" destination="dbn-6T-s0T" id="AcQ-35-yq6"/>
                         <outlet property="detailTextLabel" destination="d6d-Gi-EC6" id="cBT-Mo-l14"/>
                         <outlet property="imageView" destination="qgF-X6-6cz" id="BkA-6T-DG8"/>
                         <outlet property="textLabel" destination="N9V-a7-mXg" id="3cC-wa-1Fj"/>

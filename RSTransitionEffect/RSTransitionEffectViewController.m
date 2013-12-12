@@ -12,9 +12,25 @@
 
 @interface RSTransitionEffectViewController ()
 
+@property (nonatomic, strong) UIImage *image;
+
 @end
 
 @implementation RSTransitionEffectViewController
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        UIGraphicsBeginImageContextWithOptions(window.bounds.size, YES, 0.0f);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [window.layer renderInContext:context];
+        self.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    return self;
+}
 
 - (void)__bindItem
 {
@@ -29,7 +45,7 @@
 {
     NSMutableDictionary *frames = [NSMutableDictionary dictionary];
     
-    [frames setObject:[NSValue valueWithCGRect:self.backgroundView.frame] forKey:@"cell"];
+    [frames setObject:[NSValue valueWithCGRect:self.cell.frame] forKey:@"cell"];
     
     [frames setObject:[NSValue valueWithCGRect:self.imageView.frame] forKey:@"imageView"];
     
@@ -49,11 +65,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.backgroundView.backgroundColor = [UIColor colorWithPatternImage:self.image];
+    
     [self __bindItem];
     
     [self __prepareTargetFrames];
 
-    self.backgroundView.frame = [[self.sourceFrames objectForKey:@"cell"] CGRectValue];
+    self.cell.frame = [[self.sourceFrames objectForKey:@"cell"] CGRectValue];
     self.imageView.frame = [[self.sourceFrames objectForKey:@"imageView"] CGRectValue];
     self.textLabel.frame = [[self.sourceFrames objectForKey:@"textLabel"] CGRectValue];
     self.detailTextLabel.frame = [[self.sourceFrames objectForKey:@"detailTextLabel"] CGRectValue];
@@ -62,8 +80,10 @@
     frame.origin.y += frame.size.height;
     self.toolbar.frame = frame;
     
-    [UIView animateWithDuration:2.0f animations:^{
-        self.backgroundView.frame = [[self.targetFrames objectForKey:@"cell"] CGRectValue];
+    [UIView animateWithDuration:1.0f animations:^{
+        self.backgroundView.alpha = 0;
+        
+        self.cell.frame = [[self.targetFrames objectForKey:@"cell"] CGRectValue];
         self.imageView.frame = [[self.targetFrames objectForKey:@"imageView"] CGRectValue];
         self.textLabel.frame = [[self.targetFrames objectForKey:@"textLabel"] CGRectValue];
         self.detailTextLabel.frame = [[self.targetFrames objectForKey:@"detailTextLabel"] CGRectValue];
@@ -82,8 +102,10 @@
 
 - (IBAction)close:(id)sender
 {
-    [UIView animateWithDuration:2.0f animations:^{
-        self.backgroundView.frame = [[self.sourceFrames objectForKey:@"cell"] CGRectValue];
+    [UIView animateWithDuration:1.0f animations:^{
+        self.backgroundView.alpha = 1;
+        
+        self.cell.frame = [[self.sourceFrames objectForKey:@"cell"] CGRectValue];
         self.imageView.frame = [[self.sourceFrames objectForKey:@"imageView"] CGRectValue];
         self.textLabel.frame = [[self.sourceFrames objectForKey:@"textLabel"] CGRectValue];
         self.detailTextLabel.frame = [[self.sourceFrames objectForKey:@"detailTextLabel"] CGRectValue];

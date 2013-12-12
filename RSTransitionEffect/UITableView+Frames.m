@@ -15,6 +15,7 @@
     UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
     CGRect cellFrameInTableView = [self rectForRowAtIndexPath:indexPath];
     CGRect cellFrameInWindow = [self convertRect:cellFrameInTableView toView:[UIApplication sharedApplication].keyWindow];
+    
     NSMutableDictionary *frames = [NSMutableDictionary dictionary];
     
     [frames setObject:[NSValue valueWithCGRect:cellFrameInWindow] forKey:@"cell"];
